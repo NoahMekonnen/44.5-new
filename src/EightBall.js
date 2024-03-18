@@ -10,7 +10,12 @@ const EightBall = ({answers}) => {
     const [color, setColor] = useState('black')
     return <div className="EightBall" onClick={()=>{
         if (msg == actualRandMsg.msg){
-            setMsg(randMsg().msg)
+            const newMsg = randMsg().msg
+            if (msg == newMsg){
+                setMsg(randMsg())
+            }else{
+                setMsg(newMsg)
+            }
         }else{
         setMsg(actualRandMsg.msg)
         }

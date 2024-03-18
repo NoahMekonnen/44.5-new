@@ -9,7 +9,11 @@ const EightBall = ({answers}) => {
     const [msg, setMsg] = useState("Think of a question")
     const [color, setColor] = useState('black')
     return <div className="EightBall" onClick={()=>{
+        if (msg == actualRandMsg.msg){
+            setMsg(randMsg().msg)
+        }else{
         setMsg(actualRandMsg.msg)
+        }
         setColor(actualRandMsg.color)
     }} style={{backgroundColor:color}}>
         <p className="EightBall-text" >{msg}</p>
